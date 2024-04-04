@@ -1,8 +1,13 @@
+// This is Javascript code 
+
+// Targeting the Elements
 let pageNo_one = document.getElementById("pageNoone");
 let pageNo_Two = document.getElementById("pageNo_Two");
 let nextButton = document.getElementById("nextButton");
 let prevButton = document.getElementById("prevButton");
 
+
+// Detection of scrolL action 
 let page = 1;
 let loading = false;
 window.addEventListener("scroll", () => {
@@ -13,6 +18,8 @@ window.addEventListener("scroll", () => {
     fetchData(page);
   }
 });
+
+// fetching of Api using Function
 
 fetchData(page);
 async function fetchData(page = 1, perPage) {
@@ -40,6 +47,8 @@ async function fetchData(page = 1, perPage) {
   perPage += 100;
 }
 
+// fetched_Data_and_paint_On_the_Html Dynamically
+
 function renderUsers(users) {
   const userList = document.getElementById("userList");
   users.forEach((user) => {
@@ -60,7 +69,7 @@ function renderStars(repos) {
   repos.forEach((repa) => {
     const { name, id, stargazers_count, html_url } = repa;
     const myRepoCard = document.createElement("div");
-    myRyepoCard.classList.add("repa-card");
+    myRepoCard.classList.add("repa-card");
     myRepoCard.innerHTML = `
             <h2 class="repa-name">name: ${name}</h2>
             <p class="repa-description">id: ${id}</p>
@@ -68,6 +77,7 @@ function renderStars(repos) {
             <a href="${html_url}" class="repa-list">View Repo</a>
             <br>
         `;
-    repList_Items.appendChild(repoCard);
+        
+    repList_Items.appendChild(myRepoCard);
   });
 }
